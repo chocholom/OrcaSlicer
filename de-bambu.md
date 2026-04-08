@@ -60,8 +60,7 @@ I pay a respect to the maintainers of OrcaSLicer as there are some really nice f
 - BBL.json (279KB), Creality.json (75KB), Qidi.json (232KB), Flashforge.json (98KB), Elegoo.json (65KB), Snapmaker.json (62KB), plus 60+ other brands
 
 ### How treated
-- All deleted except `Prusa/`, `Prusa.json`, `Custom/`, `Custom.json`
-- Built binary contains only Prusa printer definitions
+- **All profiles kept.** They are pure data — JSON settings files (temperatures, bed sizes, speeds, retraction) and PNG cover images. They contain no network calls, URLs, or executable code. No security reason to remove them.
 
 ---
 
@@ -187,4 +186,4 @@ Verified via `strings` on the binary:
 - Zero `check-version.orcaslicer.com` URLs
 - Zero `files.bambu-lab.com` URLs
 - Zero `e.bambulab.com/t?` tracking URLs
-- Only profiles: Prusa + Custom
+- All printer profiles kept (pure data, no network calls)
