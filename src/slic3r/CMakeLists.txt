@@ -564,24 +564,24 @@ set(SLIC3R_GUI_SOURCES
     Utils/CalibUtils.hpp
     Utils/ColorSpaceConvert.cpp
     Utils/ColorSpaceConvert.hpp
-    Utils/CrealityPrint.cpp
-    Utils/CrealityPrint.hpp
+    #Utils/CrealityPrint.cpp
+    #Utils/CrealityPrint.hpp
     Utils/Duet.cpp
     Utils/Duet.hpp
-    Utils/ElegooLink.cpp
-    Utils/ElegooLink.hpp
+    #Utils/ElegooLink.cpp
+    #Utils/ElegooLink.hpp
     Utils/EmbossStyleManager.cpp
     Utils/EmbossStyleManager.hpp
-    Utils/ESP3D.cpp
-    Utils/ESP3D.hpp
+    #Utils/ESP3D.cpp
+    #Utils/ESP3D.hpp
     Utils/FileHelp.cpp
     Utils/FileHelp.hpp
     Utils/FixModelByWin10.cpp
     Utils/FixModelByWin10.hpp
     Utils/FlashAir.cpp
     Utils/FlashAir.hpp
-    Utils/Flashforge.cpp
-    Utils/Flashforge.hpp
+    #Utils/Flashforge.cpp
+    #Utils/Flashforge.hpp
     Utils/FontConfigHelp.cpp
     Utils/FontConfigHelp.hpp
     Utils/HexFile.cpp
@@ -594,8 +594,8 @@ set(SLIC3R_GUI_SOURCES
     Utils/json_diff.hpp
     Utils/minilzo_extension.cpp
     Utils/minilzo_extension.hpp
-    Utils/MKS.cpp
-    Utils/MKS.hpp
+    #Utils/MKS.cpp
+    #Utils/MKS.hpp
     Utils/NetworkAgent.cpp
     Utils/NetworkAgent.hpp
     Utils/NetworkAgentFactory.hpp
@@ -606,10 +606,10 @@ set(SLIC3R_GUI_SOURCES
     Utils/OrcaCloudServiceAgent.hpp
     Utils/OrcaPrinterAgent.cpp
     Utils/OrcaPrinterAgent.hpp
-    Utils/QidiPrinterAgent.cpp
-    Utils/QidiPrinterAgent.hpp
-    Utils/SnapmakerPrinterAgent.cpp
-    Utils/SnapmakerPrinterAgent.hpp
+    #Utils/QidiPrinterAgent.cpp
+    #Utils/QidiPrinterAgent.hpp
+    #Utils/SnapmakerPrinterAgent.cpp
+    #Utils/SnapmakerPrinterAgent.hpp
     Utils/MoonrakerPrinterAgent.cpp
     Utils/MoonrakerPrinterAgent.hpp
     Utils/BBLCloudServiceAgent.cpp
@@ -687,7 +687,7 @@ endif ()
 
 if (UNIX AND NOT APPLE)
     list(APPEND SLIC3R_GUI_SOURCES
-        GUI/Printer/gstbambusrc.c
+        #GUI/Printer/gstbambusrc.c
     )
 endif ()
 

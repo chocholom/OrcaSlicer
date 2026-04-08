@@ -685,10 +685,7 @@ void PhysicalPrinterDialog::update(bool printer_change)
             }
         }
         
-        if (opt->value == htFlashforge) {
-                m_optgroup->hide_field("printhost_apikey");
-                m_optgroup->hide_field("printhost_authorization_type");
-            }
+        // Flashforge-specific field hiding removed (manufacturer removed)
     }
     else {
         m_optgroup->set_value("host_type", int(PrintHostType::htOctoPrint), false);

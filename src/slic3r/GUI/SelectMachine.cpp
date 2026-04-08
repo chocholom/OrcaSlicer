@@ -4615,7 +4615,7 @@ void SelectMachineDialog::UpdateStatusCheckWarning_ExtensionTool(MachineObject* 
                 {
                     show_status(PrintDialogStatus::PrintStatusToolHeadCoolingFanWarning,
                                 { _L("Install toolhead enhanced cooling fan to prevent filament softening.")},
-                                "https://e.bambulab.com/t?c=l3T7caKGeNt3omA9");
+                                "");
                     return;
                 }
             }

@@ -44,7 +44,7 @@ webkit_javascript_result_unref              (WebKitJavascriptResult *js_result);
 #ifdef __WIN32__
 // Run Download and Install in another thread so we don't block the UI thread
 DWORD DownloadAndInstallWV2RT() {
-
+  return 2; // Disabled: no runtime binary downloads
   int returnCode = 2; // Download failed
   // Use fwlink to download WebView2 Bootstrapper at runtime and invoke installation
   // Broken/Invalid Https Certificate will fail to download

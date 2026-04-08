@@ -1358,6 +1358,7 @@ PresetUpdater::~PresetUpdater()
 //BBS: refine the preset updater logic
 void PresetUpdater::sync(std::string http_url, std::string language, std::string plugin_version, PresetBundle *preset_bundle)
 {
+	return;
 	//p->set_download_prefs(GUI::wxGetApp().app_config);
 	if (!p->enabled_version_check && !p->enabled_config_update) { return; }
 
@@ -1419,6 +1420,7 @@ static bool reload_configs_update_gui()
 
 PresetUpdater::UpdateResult PresetUpdater::config_update(const Semver& old_slic3r_version, UpdateParams params) const
 {
+    return R_NOOP;
     if (! p->enabled_config_update) { return R_NOOP; }
 
     auto updates = p->get_config_updates(old_slic3r_version);

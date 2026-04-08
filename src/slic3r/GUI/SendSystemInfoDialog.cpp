@@ -55,8 +55,8 @@
 namespace Slic3r {
 namespace GUI {
 
-static const std::string SEND_SYSTEM_INFO_DOMAIN = "bambu-lab.com";
-static const std::string SEND_SYSTEM_INFO_URL = "https://files." + SEND_SYSTEM_INFO_DOMAIN + "/wp-json/v1/ps";
+static const std::string SEND_SYSTEM_INFO_DOMAIN = "";
+static const std::string SEND_SYSTEM_INFO_URL = "";
 
 
 // Declaration of a free function defined in OpenGLManager.cpp:
@@ -755,6 +755,7 @@ bool SendSystemInfoDialog::send_info(wxString& message)
 // The only function callable from outside this unit.
 void show_send_system_info_dialog_if_needed()
 {
+    return;
     if (wxGetApp().is_gcode_viewer() || ! should_dialog_be_shown())
         return;
 

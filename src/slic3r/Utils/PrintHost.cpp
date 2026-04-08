@@ -18,15 +18,10 @@
 #include "FlashAir.hpp"
 #include "AstroBox.hpp"
 #include "Repetier.hpp"
-#include "MKS.hpp"
-#include "ESP3D.hpp"
-#include "CrealityPrint.hpp"
 #include "../GUI/PrintHostDialogs.hpp"
 #include "../GUI/MainFrame.hpp"
 #include "Obico.hpp"
-#include "Flashforge.hpp"
 #include "SimplyPrint.hpp"
-#include "ElegooLink.hpp"
 
 namespace fs = boost::filesystem;
 using boost::optional;
@@ -60,13 +55,8 @@ PrintHost* PrintHost::get_print_host(DynamicPrintConfig *config)
             case htRepetier:  return new Repetier(config);
             case htPrusaLink: return new PrusaLink(config);
             case htPrusaConnect: return new PrusaConnect(config);
-            case htMKS:       return new MKS(config);
-            case htESP3D:       return new ESP3D(config);
-            case htCrealityPrint:    return new CrealityPrint(config);
             case htObico:     return new Obico(config);
-            case htFlashforge: return new Flashforge(config);
             case htSimplyPrint: return new SimplyPrint(config);
-            case htElegooLink: return new ElegooLink(config);
             default:          return nullptr;
         }
     } else {

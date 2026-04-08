@@ -1003,7 +1003,7 @@ void GUI_App::post_init()
             std::string language = GUI::into_u8(current_language_code());
             std::string network_ver = Slic3r::NetworkAgent::get_version();
             bool        sys_preset  = app_config->get("sync_system_preset") == "true";
-            this->preset_updater->sync(http_url, language, network_ver, sys_preset ? preset_bundle : nullptr);
+            // this->preset_updater->sync(http_url, language, network_ver, sys_preset ? preset_bundle : nullptr);
 
             this->check_new_version_sf();
             if (is_user_login() && !app_config->get_stealth_mode()) {
@@ -1132,25 +1132,25 @@ std::string GUI_App::get_http_url(std::string country_code, std::string path)
 {
     std::string url;
     if (country_code == "US") {
-        url = "https://api.bambulab.com/";
+        url = "";
     }
     else if (country_code == "CN") {
-        url = "https://api.bambulab.cn/";
+        url = "";
     }
     else if (country_code == "ENV_CN_DEV") {
-        url = "https://api-dev.bambu-lab.com/";
+        url = "";
     }
     else if (country_code == "ENV_CN_QA") {
-        url = "https://api-qa.bambu-lab.com/";
+        url = "";
     }
     else if (country_code == "ENV_CN_PRE") {
-        url = "https://api-pre.bambu-lab.com/";
+        url = "";
     }
     else {
-        url = "https://api.bambulab.com/";
+        url = "";
     }
 
-    url += path.empty() ? "v1/iot-service/api/slicer/resource" : path;
+    url += path.empty() ? "" : path;
     return url;
 }
 
@@ -1158,22 +1158,22 @@ std::string GUI_App::get_model_http_url(std::string country_code)
 {
     std::string url;
     if (country_code == "US") {
-        url = "https://makerworld.com/";
+        url = "";
     }
     else if (country_code == "CN") {
-        url = "https://makerworld.com/";
+        url = "";
     }
     else if (country_code == "ENV_CN_DEV") {
-        url = "https://makerhub-dev.bambu-lab.com/";
+        url = "";
     }
     else if (country_code == "ENV_CN_QA") {
-        url = "https://makerhub-qa.bambu-lab.com/";
+        url = "";
     }
     else if (country_code == "ENV_CN_PRE") {
-        url = "https://makerhub-pre.bambu-lab.com/";
+        url = "";
     }
     else {
-        url = "https://makerworld.com/";
+        url = "";
     }
 
     return url;
@@ -2491,27 +2491,7 @@ void GUI_App::copy_older_config()
 std::map<std::string, std::string> GUI_App::get_extra_header()
 {
     std::map<std::string, std::string> extra_headers;
-    extra_headers.insert(std::make_pair("X-BBL-Client-Type", "slicer"));
-    extra_headers.insert(std::make_pair("X-BBL-Client-Name", SLIC3R_APP_NAME));
-    extra_headers.insert(std::make_pair("X-BBL-Client-Version", VersionInfo::convert_full_version(SLIC3R_VERSION)));
-#if defined(__WINDOWS__)
-#ifdef _M_X64
-    extra_headers.insert(std::make_pair("X-BBL-OS-Type", "windows"));
-#else
-    extra_headers.insert(std::make_pair("X-BBL-OS-Type", "windows_arm"));
-#endif
-#elif defined(__APPLE__)
-    extra_headers.insert(std::make_pair("X-BBL-OS-Type", "macos"));
-#elif defined(__LINUX__)
-    extra_headers.insert(std::make_pair("X-BBL-OS-Type", "linux"));
-#endif
-    int major = 0, minor = 0, micro = 0;
-    wxGetOsVersion(&major, &minor, &micro);
-    std::string os_version = (boost::format("%1%.%2%.%3%") % major % minor % micro).str();
-    extra_headers.insert(std::make_pair("X-BBL-OS-Version", os_version));
-    if (app_config)
-        extra_headers.insert(std::make_pair("X-BBL-Device-ID", app_config->get("slicer_uuid")));
-    extra_headers.insert(std::make_pair("X-BBL-Language", convert_studio_language_to_api(into_u8(current_language_code_safe()))));
+    // Phone-home headers disabled
     return extra_headers;
 }
 
@@ -5294,6 +5274,7 @@ std::string extract_path_from_url(const std::string& url)
 
 void maybe_attach_updater_signature(Http& http, const std::string& canonical_query, const std::string& request_url)
 {
+    return;
     if (canonical_query.empty())
         return;
 
@@ -5328,6 +5309,7 @@ void maybe_attach_updater_signature(Http& http, const std::string& canonical_que
 
 void GUI_App::check_new_version_sf(bool show_tips, int by_user)
 {
+    return;
     AppConfig* app_config = wxGetApp().app_config;
     bool       check_stable_only = app_config->get_bool("check_stable_update_only");
     auto version_check_url = app_config->version_check_url();

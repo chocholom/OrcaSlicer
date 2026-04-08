@@ -47,8 +47,8 @@ namespace pt = boost::property_tree;
 namespace Slic3r {
 
 namespace {
-constexpr const char* ORCA_DEFAULT_API_URL = "https://xxx.orcaslicer.com";
-constexpr const char* ORCA_DEFAULT_AUTH_URL = "https://xxx.orcaslicer.com";
+constexpr const char* ORCA_DEFAULT_API_URL = "";  // Disabled: no cloud sync
+constexpr const char* ORCA_DEFAULT_AUTH_URL = "";  // Disabled: no cloud sync
 constexpr const char* ORCA_DEFAULT_PUB_KEY = "xxxxxxxxxxxxx";
 constexpr const char* ORCA_HEALTH_PATH = "/api/v1/health";
 constexpr const char* ORCA_SYNC_PULL_PATH = "/api/v1/sync/pull";

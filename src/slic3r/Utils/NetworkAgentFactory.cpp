@@ -1,10 +1,7 @@
 #include "NetworkAgentFactory.hpp"
 #include "IPrinterAgent.hpp"
 #include "ICloudServiceAgent.hpp"
-#include "BBLPrinterAgent.hpp"
 #include "OrcaPrinterAgent.hpp"
-#include "QidiPrinterAgent.hpp"
-#include "SnapmakerPrinterAgent.hpp"
 #include "MoonrakerPrinterAgent.hpp"
 #include <boost/log/trivial.hpp>
 #include <map>
@@ -131,22 +128,7 @@ void NetworkAgentFactory::clear_printer_agent_cache()
 void NetworkAgentFactory::register_all_agents()
 {
     register_agent<OrcaPrinterAgent>();
-    register_agent<QidiPrinterAgent>();
-    register_agent<SnapmakerPrinterAgent>();
     register_agent<MoonrakerPrinterAgent>();
-
-    // BBLPrinterAgent takes no constructor args, so register manually
-    {
-        auto info = BBLPrinterAgent::get_agent_info_static();
-        register_printer_agent(info.id, info.name,
-                               [](std::shared_ptr<ICloudServiceAgent> cloud_agent,
-                                  const std::string& /*log_dir*/) -> std::shared_ptr<IPrinterAgent> {
-                                   auto agent = std::make_shared<BBLPrinterAgent>();
-                                   if (cloud_agent)
-                                       agent->set_cloud_agent(cloud_agent);
-                                   return agent;
-                               });
-    }
 }
 
 std::unique_ptr<NetworkAgent> create_agent_from_config(const std::string& log_dir, AppConfig* app_config)

@@ -1,3 +1,7 @@
+> **Privacy-hardened fork.** I pay respect to the maintainers of OrcaSlicer as there are some really nice features like z antialiasing that aren't available for other slicers. BUT I'm really sorry as I'm unable to pay my privacy for it. This version can run fully offline — all network calls are done based on user action like "send to printer". The small discomfort — like having to build the version myself and not being informed within the app when a new OrcaSlicer version is released — is something I'm able to accept. See [de-bambu.md](de-bambu.md) for the full audit and list of changes.
+
+---
+
 <div align="center">
 
 <picture>
